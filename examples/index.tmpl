@@ -1,0 +1,40 @@
+use strict;
+use warnings;
+
+{
+    body => \'index.tmpl',
+    title => '',
+
+    d => {
+        user => {
+            login => 'zoffix',
+        },
+    },
+
+    plugins => [
+        { StartPage => 2000 },
+    ],
+    
+    plug_start_page => {
+        pages => [
+            'http://google.ca/'             => 'Google',
+            'http://zoffix.com/'            => 'Zoffix Znet Portal',
+            'http://mind-power-book.com/'   => 'Mind Power Book',
+        ],
+        dsn           => "DBI:mysql:database=test;host=localhost",
+        user          => 'test',
+        pass          => 'test',
+        opts          => { RaiseError => 1, AutoCommit => 1 },
+        no_redirect   => 1,
+        table         => 'users',
+        login_col     => 'login',
+        page_col      => 'start_page',
+        login         => sub { $_[0]->{d}{user}{login} },
+        label_text    => 'Start page:',
+        default_page  => undef,
+        submit_button => q|<input type="submit" class="input_submit"|
+                            . q| value="Save">|,
+    },
+
+}
+
