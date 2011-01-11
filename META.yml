@@ -15,11 +15,11 @@ name: App-ZofCMS-Plugin-StartPage
 provides:
   App::ZofCMS::Plugin::StartPage:
     file: lib/App/ZofCMS/Plugin/StartPage.pm
-    version: 0.0101
+    version: 0.0102
 requires:
   App::ZofCMS::Plugin::Base: 0.0106
   DBI: 1.609
   HTML::Template: 2.9
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.0101
+version: 0.0102

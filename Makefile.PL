@@ -2,16 +2,16 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
-  'NAME' => 'App::ZofCMS::Plugin::StartPage',
-  'VERSION_FROM' => 'lib/App/ZofCMS/Plugin/StartPage.pm',
-  'PREREQ_PM' => {
-                   'App::ZofCMS::Plugin::Base' => '0.0106',
-                   'DBI' => '1.609',
-                   'HTML::Template' => '2.9',
-                   'Test::More' => 0
-                 },
-  'INSTALLDIRS' => 'site',
-  'EXE_FILES' => [],
-  'PL_FILES' => {}
-)
+          'PL_FILES' => {},
+          'INSTALLDIRS' => 'site',
+          'NAME' => 'App::ZofCMS::Plugin::StartPage',
+          'EXE_FILES' => [],
+          'VERSION_FROM' => 'lib/App/ZofCMS/Plugin/StartPage.pm',
+          'PREREQ_PM' => {
+                           'Test::More' => 0,
+                           'HTML::Template' => '2.9',
+                           'App::ZofCMS::Plugin::Base' => '0.0106',
+                           'DBI' => '1.609'
+                         }
+        )
 ;

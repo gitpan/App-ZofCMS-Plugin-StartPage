@@ -3,7 +3,7 @@ package App::ZofCMS::Plugin::StartPage;
 use warnings;
 use strict;
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 
 use base 'App::ZofCMS::Plugin::Base';
 use HTML::Template;
@@ -103,6 +103,10 @@ sub save_settings {
     return
         unless has_value( $q->{plugsp_page} )
             and $conf->{valid_pages}{ $q->{plugsp_page} };
+
+    for ( @{ $conf->{pages} || [] } ) {
+        $_->{is_selected} = $_->{page} eq $q->{plugsp_page} ? 1 : 0;
+    }
 
     my $dbh = $self->dbh;
     $dbh->do(
